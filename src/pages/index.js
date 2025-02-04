@@ -154,7 +154,7 @@ export default function Home() {
                 </div>
                 <h5 className="modal-title mt-3">Tell us who you are?</h5>
                 <div className="d-flex justify-content-around mt-5 mb-4">
-                  <Link href="/employeedetails">
+                  <Link href="/employerlogin">
                     <div className="card p-3 " style={{ cursor: "pointer" }}>
                       <div className="justify-content-center">
 
@@ -163,7 +163,7 @@ export default function Home() {
                       <h6 className="mt-3">I am an Employer</h6>
                     </div>
                   </Link>
-                  <Link href="/employerdetails">
+                  <Link href="/employeedetails">
                     <div className="card p-3 " style={{ cursor: "pointer" }}>
                       <div className="justify-content-center">
 
