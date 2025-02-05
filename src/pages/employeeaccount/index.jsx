@@ -149,14 +149,14 @@ const Employeeaccount = () => {
 
                                         <input className="form-control form-control-sm mt-3" placeholder="add your skills"></input>
 
-                                        <span class="badge rounded-pill mt-4 ms-2 text-bg-primary">weaving</span>
-                                        <span class="badge rounded-pill mt-4 ms-2 text-bg-secondary">Spinning</span>
-                                        <span class="badge rounded-pill mt-4 ms-2 text-bg-success">Sizing</span>
-                                        <span class="badge rounded-pill mt-4 ms-2 text-bg-danger">Jobber</span>
-                                        <span class="badge rounded-pill mt-4 ms-2 text-bg-warning">Dyer</span>
-                                        <span class="badge rounded-pill mt-4 ms-2 text-bg-info">Knotter</span>
-                                        <span class="badge rounded-pill mt-4 ms-2 text-bg-light">Beamgetting</span>
-                                        <span class="badge rounded-pill mt-4 ms-2 text-bg-dark">Master</span>
+                                        <span className="badge rounded-pill mt-4 ms-2 text-bg-primary">weaving</span>
+                                        <span className="badge rounded-pill mt-4 ms-2 text-bg-secondary">Spinning</span>
+                                        <span className="badge rounded-pill mt-4 ms-2 text-bg-success">Sizing</span>
+                                        <span className="badge rounded-pill mt-4 ms-2 text-bg-danger">Jobber</span>
+                                        <span className="badge rounded-pill mt-4 ms-2 text-bg-warning">Dyer</span>
+                                        <span className="badge rounded-pill mt-4 ms-2 text-bg-info">Knotter</span>
+                                        <span className="badge rounded-pill mt-4 ms-2 text-bg-light">Beamgetting</span>
+                                        <span className="badge rounded-pill mt-4 ms-2 text-bg-dark">Master</span>
                                     </div>
 
 

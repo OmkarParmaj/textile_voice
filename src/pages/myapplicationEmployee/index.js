@@ -113,7 +113,7 @@ const myapplicationEmployee = () => {
                                     </div>
 
                                     <div className=" mt-2 ms-3 col-xxl-4 col-xl-4 col-lg-12 col-sm-12 col-md-12">
-                                        <span class="badge mt-4 rounded-pill float-end text-bg-info">Accepted</span>
+                                        <span className="badge mt-4 rounded-pill float-end text-bg-info">Accepted</span>
 
                                     </div>
 
