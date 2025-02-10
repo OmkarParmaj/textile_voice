@@ -26,7 +26,7 @@ import '../../styles/dashboard.css';
 
 
 
-const Dashboard = () => {
+const Dashboard2 = () => {
   return (
     <>
 
@@ -62,53 +62,36 @@ const Dashboard = () => {
 
 
 
-        <div className="row  mb-5">
-          <h3 className="text-center mt-5 mb-5">Tell us who you are?</h3>
-          <div className="col-xxl-6  d-flex justify-content-center col-xl-6 col-lg-12 col-md-12 col-sm-12">
+        <div className="row pb-5 mt-5 ps-0 pe-0 d-flex justify-content-center align-items-center" >
+                    <h1 className="text-center mt-4">Find your dream job now</h1>
+                    <p className="text-center"> Explore top opportunities, grow your career, and take the next step toward success.</p>
 
-            {/* <h5 className="modal-title mt-3">Tell us who you are?</h5> */}
+                    <div className=" d-flex justify-content-center align-items-center col-xxl-12 pt-4 pb-4 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div className="card rounded-5 border shadow-sm">
+                            <div className="row ps-3 ">
+                                <div className="col-12 d-flex align-items-center  ">
+                                    <div className="d-flex   pt-2 pb-2 ">
+                                        <input className=" ms-0 me-4  searchbarinput " style={{ height: "45px" }} placeholder="   Job title, Destignation"></input>
+                                        <input className=" ps-3 ms-3  searchbarinput" style={{ height: "45px" }} placeholder="Years of experience"></input>
+                                        <input className=" ps-3 ms-3 searchbarinput" style={{ height: "45px" }} placeholder="    Location"></input>
+                                        <button className="btn me-3 ms-3 btn-danger rounded-5 m-0 p-0" style={{ width: "120px", height: "50px" }}>SEARCH</button>
+                                    </div>
 
-            <Link href="/employerlogin">
-              {/* <div className="card p-3 " style={{ cursor: "pointer" }}> */}
-              {/* <div className="justify-content-center"> */}
-
-
-              <img
-                src="/Er1.png"
-                className="rounded-5"
-                width={450}
-                height={180}
-              >
-              </img>
-              {/* </div> */}
-              {/* <h6 className="mt-3">I am an Employer</h6> */}
-              {/* </div> */}
-            </Link>
+                                </div>
 
 
 
+                            </div>
 
-          </div>
-          <div className="col-xxl-6  d-flex justify-content-center col-xl-6 col-lg-12 col-md-12 col-sm-12">
-            <Link href="/employeedetails" className="">
-              <img
-                src="/E1.png"
-                className="rounded-5"
-                width={450}
-                height={180}
-              />
+                        </div>
+
+                    </div>
 
 
-              {/* <h6 className="mt-3">I am an Employee</h6> */}
 
-            </Link>
+                </div>
 
-
-          </div>
-
-        </div>
-
-        <div className="row mb-5" style={{ marginTop: "130px" }}>
+        <div className="row mb-5" style={{ marginTop: "30px" }}>
           <h4 className="text-center mb-5">ADVERTISING SECTION</h4>
           <div id="carouselExampleCaptions3" class="carousel slide">
             <div class="carousel-indicators">
@@ -495,4 +478,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dashboard2;

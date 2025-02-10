@@ -1,7 +1,9 @@
 "use client";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 
 import { FcBusinessman } from "react-icons/fc";
 import { FcManager } from "react-icons/fc";
@@ -26,12 +28,58 @@ export default function Home() {
     email: "",
     password: "",
     role: "",
+    expiry: new Date().getTime() + 1 * 60 * 1000,
   });
+
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [logindata, setLogindata] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [token, setToken] = useState("");
+
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    console.log("Signing in with:", userData);
+
+    // Example: Fetch user data from localStorage
+    const storedData = JSON.parse(localStorage.getItem("userData"));
+
+    if (storedData && storedData.email === userData.email && storedData.password === userData.password) {
+      console.log("Login successful");
+      alert("Sign in successful!");
+    } else {
+      console.log("Invalid credentials");
+      alert("Invalid email or password!");
+    }
+  };
+
+
+
+
+
+  // Load userData from localStorage on component mount
+  //  useEffect(() => {
+  //   const storedData = localStorage.getItem("userData");
+  //   if (storedData) {
+  //     setUserData(JSON.parse(storedData));
+  //   }
+  // }, []);
+
+  // Store userData in localStorage whenever it changes
+  // useEffect(() => {
+  //   localStorage.setItem("userData", JSON.stringify(userData));
+  // }, [userData]);
+
+
 
   const handleNext = (e) => {
     e.preventDefault();
     setShowSignup(false);
     setShowNextModal(true);
+    localStorage.setItem("userData", JSON.stringify(userData));
   };
 
   // const handleRoleSelection = (role) => {
@@ -39,6 +87,12 @@ export default function Home() {
   //   setShowNextModal(false);
   //   role === "employer" ? setShowEmployerModal(true) : setShowEmployeeModal(true);
   // };
+
+
+  console.log(token)
+
+  const decode = token ? jwtDecode(token) : "";
+  console.log(decode)
 
   return (
     <>
@@ -63,7 +117,7 @@ export default function Home() {
             <button className="btn btn-danger ms-2" onClick={() => setShowSignup(true)}>
               Sign Up
             </button>
-            <button className="btn btn-danger ms-2 me-4">Sign In</button>
+            <button className="btn btn-danger ms-2 me-4" onClick={() => setShowSignIn(true)}>Sign In</button>
           </div>
         </div>
       </div>
@@ -132,7 +186,7 @@ export default function Home() {
                   <p className="mt-3 text-center">
                     Already have an account?{" "}
                     <span className="ms-2 text-danger">
-                      <Link href="">Login</Link>
+                      <span style={{ cursor: "pointer" }} onClick={() => { setShowSignup(false); setShowSignIn(true); }}>Login</span>
                     </span>
                   </p>
                 </form>
@@ -141,6 +195,87 @@ export default function Home() {
           </div>
         </div>
       )}
+
+
+      {showSignIn && (
+        <div className="modal fade show d-block" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-body">
+                <form onSubmit={handleSignIn}>
+                  <div className="row justify-content-end">
+                    <button className="btn-close me-3" onClick={() => setShowSignIn(false)}></button>
+                  </div>
+                  <h5 className="modal-title text-center">Sign In</h5>
+                  <p className="mt-5">
+                    Welcome back! Sign in to continue.
+                  </p>
+
+                  {/* Email Input */}
+                  <div className="form-floating mb-3">
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="emailInput"
+                      placeholder="name@example.com"
+                      value={logindata.email}
+                      onChange={(e) => setLogindata({ ...logindata, email: e.target.value })}
+                      required
+                    />
+                    <label htmlFor="emailInput">Email</label>
+                  </div>
+
+                  {/* Password Input */}
+                  <div className="form-floating mb-3">
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="passwordInput"
+                      placeholder="Enter your password"
+                      value={logindata.password}
+                      onChange={(e) => setLogindata({ ...logindata, password: e.target.value })}
+                      required
+                    />
+                    <label htmlFor="passwordInput">Password</label>
+                  </div>
+
+                  {/* Remember Me Checkbox */}
+                  <div className="form-check mt-3">
+                    <input className="form-check-input" type="checkbox" id="rememberMeCheck" />
+                    <label className="form-check-label" htmlFor="rememberMeCheck">
+                      Remember me
+                    </label>
+                  </div>
+
+                  {/* Sign In Button */}
+                  <button type="submit" className="btn btn-danger w-100 mt-4">
+                    Sign In
+                  </button>
+
+                  <GoogleLogin
+                    onSuccess={credentialResponse => {
+                      // console.log(credentialResponse.credential);
+                      setToken(credentialResponse.credential)
+                    }}
+                    onError={() => {
+                      console.log('Login Failed');
+                    }}
+                  />
+
+                  {/* Forgot Password & Sign Up Link */}
+                  <p className="mt-3 text-center">
+                    Forgot password? <span className="text-danger"><Link href="">Reset</Link></span>
+                  </p>
+                  <p className="text-center">
+                    Don't have an account? <span className="text-danger"><span style={{ cursor: "pointer" }} onClick={() => { setShowSignup(true); setShowSignIn(false); }}>Sign Up</span></span>
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
 
       {/* Next Step Modal */}
       {showNextModal && (
@@ -153,24 +288,36 @@ export default function Home() {
                   <button className="btn-close me-3" onClick={() => setShowNextModal(false)}></button>
                 </div>
                 <h5 className="modal-title mt-3">Tell us who you are?</h5>
-                <div className="d-flex justify-content-around mt-5 mb-4">
+                <div className="row d-flex justify-content-around mt-5 mb-4">
                   <Link href="/employerlogin">
-                    <div className="card p-3 " style={{ cursor: "pointer" }}>
-                      <div className="justify-content-center">
+                    {/* <div className="card p-3 " style={{ cursor: "pointer" }}> */}
+                      {/* <div className="justify-content-center"> */}
 
-                        <FcBusinessman size={65} />
-                      </div>
-                      <h6 className="mt-3">I am an Employer</h6>
-                    </div>
+                       
+                        <img
+                          src="/Er1.png"
+                          className="rounded-5"
+                          width={450}
+                          height={180}
+                        >
+                        </img>
+                      {/* </div> */}
+                      {/* <h6 className="mt-3">I am an Employer</h6> */}
+                    {/* </div> */}
                   </Link>
-                  <Link href="/employeedetails">
-                    <div className="card p-3 " style={{ cursor: "pointer" }}>
-                      <div className="justify-content-center">
-
-                        <FcManager size={65} />
-                      </div>
-                      <h6 className="mt-3">I am an Employee</h6>
-                    </div>
+                  <Link href="/employeedetails" className="mt-4">
+                 
+                    
+                      <img
+                          src="/E1.png"
+                          className="rounded-5"
+                          width={450}
+                          height={180}
+                        />
+                       
+                 
+                      {/* <h6 className="mt-3">I am an Employee</h6> */}
+                    
                   </Link>
                 </div>
               </div>
@@ -178,6 +325,12 @@ export default function Home() {
           </div>
         </div>
       )}
+
+
+
+
+
+
 
 
     </>
