@@ -1,6 +1,13 @@
 import "@/styles/globals.css";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
+import '../styles/dashboard.css';
+import '../styles/employeeaccount.css';
+import '../styles/findjob.css';
+import '../styles/modal.css';
+
+
+
 
 export default function App({ Component, pageProps }) {
   return (

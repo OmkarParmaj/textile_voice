@@ -24,7 +24,7 @@ import { FcShare } from "react-icons/fc";
 
 
 
-import '../../styles/findjob.css'
+// import '../../styles/findjob.css'
 import Footer from "@/components/footer";
 
 const Findjob = () => {

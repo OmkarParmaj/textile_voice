@@ -21,7 +21,7 @@ import { GrDocumentUser } from "react-icons/gr";
 import { LuPackage2 } from "react-icons/lu";
 import { CiSettings } from "react-icons/ci";
 
-import '../../../styles/findjob.css'
+// import '../../../styles/findjob.css'
 import Footer from "@/components/footer";
 
 const Searchemployee = () => {

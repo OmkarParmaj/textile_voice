@@ -1,6 +1,6 @@
 import React from "react";
 
-import '../../styles/modal.css';
+// import '../../styles/modal.css';
 
 
 const DeleteModal = ({ show, handleClose, handleConfirm }) => {
