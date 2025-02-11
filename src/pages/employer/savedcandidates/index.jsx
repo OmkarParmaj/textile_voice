@@ -21,7 +21,7 @@ import { LuPackage2 } from "react-icons/lu";
 import { CiSettings } from "react-icons/ci";
 import { GiPerson } from "react-icons/gi";
 
-import '../../../styles/employeeaccount.module.css'
+import '../../../styles/employeeaccount.css'
 import Footer from "@/components/footer";
 
 const Savedcandidates = () => {

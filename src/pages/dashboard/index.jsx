@@ -18,7 +18,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
 import Link from "next/link";
 
-import '../../styles/dashboard.module.css';
+import '../../styles/dashboard.css';
 
 
 
