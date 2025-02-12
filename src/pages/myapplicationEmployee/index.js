@@ -57,7 +57,7 @@ const myapplicationEmployee = () => {
 
                             <div className="row">
                                 <div className="col-xxl-6 pt-3 pb-0 mb-0  col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                                    <p className="text-dangertext-center ">My appliction</p>
+                                    <p className="text-dangertext-center ">Applied jobs</p>
 
                                 </div>
                                 <div className="col-xxl-6 pt-3 pb-0 mb-0  col-xl-6 col-lg-12 col-md-12 col-sm-12">
@@ -127,7 +127,7 @@ const myapplicationEmployee = () => {
                     </div>
 
                     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 ">
-                        <h4 className="mt-4 ms-4">My application</h4>
+                        <h4 className="mt-4 ms-4">Applied jobs</h4>
                         <p className="ms-4 mt-2">Here is your applied job status</p>
 
                         <div className="row">

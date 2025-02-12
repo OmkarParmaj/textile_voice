@@ -17,6 +17,7 @@ import { MdCurrencyRupee } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
 import Link from "next/link";
+import { useState } from "react";
 
 // import '../../styles/dashboard.css';
 
@@ -27,6 +28,44 @@ import Link from "next/link";
 
 
 const Dashboard2 = () => {
+
+  const [experience, setExperience] = useState([
+    "Fresher",
+    "1 year",
+    "2 years",
+    "3 years",
+    "4 years",
+    "5 years",
+    "6 years",
+    "7 years",
+    "8 years",
+    "9 years",
+    "10 years",
+    "11 years",
+    "12 years",
+    "13 years",
+    "14 years",
+    "15 years",
+    "16 years",
+    "17 years",
+    "18 years",
+    "19 years",
+    "20 years",
+    "21 years",
+    "22 years",
+    "23 years",
+    "24 years",
+    "25 years",
+    "26 years",
+    "27 years",
+    "28 years",
+    "29 years",
+    "30 years",
+    "30+ years"
+  ])
+
+
+
   return (
     <>
 
@@ -63,33 +102,44 @@ const Dashboard2 = () => {
 
 
         <div className="row pb-5 mt-5 ps-0 pe-0 d-flex justify-content-center align-items-center" >
-                    <h1 className="text-center mt-4">Find your dream job now</h1>
-                    <p className="text-center"> Explore top opportunities, grow your career, and take the next step toward success.</p>
+          <h1 className="text-center mt-4">Find your dream job now</h1>
+          <p className="text-center"> Explore top opportunities, grow your career, and take the next step toward success.</p>
 
-                    <div className=" d-flex justify-content-center align-items-center col-xxl-12 pt-4 pb-4 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                        <div className="card rounded-5 border shadow-sm">
-                            <div className="row ps-3 ">
-                                <div className="col-12 d-flex align-items-center  ">
-                                    <div className="d-flex   pt-2 pb-2 ">
-                                        <input className=" ms-0 me-4  searchbarinput " style={{ height: "45px" }} placeholder="   Job title, Destignation"></input>
-                                        <input className=" ps-3 ms-3  searchbarinput" style={{ height: "45px" }} placeholder="Years of experience"></input>
-                                        <input className=" ps-3 ms-3 searchbarinput" style={{ height: "45px" }} placeholder="    Location"></input>
-                                        <button className="btn me-3 ms-3 btn-danger rounded-5 m-0 p-0" style={{ width: "120px", height: "50px" }}>SEARCH</button>
-                                    </div>
-
-                                </div>
-
-
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
+          <div className=" d-flex justify-content-center align-items-center col-xxl-12 pt-4 pb-4 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div className="card rounded-5 border shadow-sm">
+              <div className="row ps-3 ">
+                <div className="col-12 d-flex align-items-center  ">
+                  <div className="d-flex   pt-2 pb-2 ">
+                    <input className=" ms-0 me-4  searchbarinput " style={{ height: "45px" }} placeholder="   Job title, Destignation"></input>
+                    <select className="ps-3 ms-3  searchbarinput" style={{ height: "45px" }} aria-label="Default select example">
+                      <option selected>Years of experience</option>
+                      {
+                        experience.map((value, index) => (
+                          <option>{value}</option>
+                        ))
+                      }
+                      {/* <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option> */}
+                    </select>
+                    {/* <input className=" ps-3 ms-3  searchbarinput" style={{ height: "45px" }} placeholder="Years of experience"></input> */}
+                    <input className=" ps-3 ms-3 searchbarinput" style={{ height: "45px" }} placeholder="    Location"></input>
+                    <button className="btn me-3 ms-3 btn-danger rounded-5 m-0 p-0" style={{ width: "120px", height: "50px" }}>SEARCH</button>
+                  </div>
 
                 </div>
+
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
 
         <div className="row mb-5" style={{ marginTop: "30px" }}>
           <h4 className="text-center mb-5">ADVERTISING SECTION</h4>
@@ -174,7 +224,7 @@ const Dashboard2 = () => {
 
 
 
-        </div>  
+        </div>
 
         <div className="row d-flex  justify-content-center align-items-center">
           <div className="card rounded-3 ms-4 shadow-lg d-flex justify-content-center align-items-center" style={{ width: "160px", height: "50px" }}>
