@@ -28,11 +28,24 @@ import { MdEdit } from "react-icons/md";
 import Footer from "@/components/footer";
 import { useState } from "react";
 import Profilemodal from "@/components/profilemodal";
+import Experiencemodal from "@/components/experiencemodal";
 
 const Employeeaccount = () => {
 
     const [show, setShow] = useState(false);
+    const [showexperience, setShowexperience] = useState(false);
 
+
+    const openexperiencemodal = () => {
+        setShowexperience(true);
+
+    }
+
+
+    const handlecloseexperience = () => {
+        setShowexperience(false);
+
+    }
 
     const openmodal = () => {
         setShow(true);
@@ -188,7 +201,7 @@ const Employeeaccount = () => {
                                         <div className="row">
 
 
-                                            <h5>Work Experience <MdEdit size={20} onClick={() => openmodal()} style={{ cursor: "pointer" }} /></h5>
+                                            <h5>Work Experience <MdEdit size={20} onClick={() => openexperiencemodal()} style={{ cursor: "pointer" }} /></h5>
 
                                             <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
                                             <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
@@ -385,6 +398,7 @@ const Employeeaccount = () => {
                 </div>
 
                 <Profilemodal show={show} handleClose={handleClose}></Profilemodal>
+                <Experiencemodal showexperience={showexperience} handlecloseexperience={handlecloseexperience}></Experiencemodal>
 
             </div>
 
