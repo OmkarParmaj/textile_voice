@@ -113,32 +113,32 @@ const Footer = () => {
                 </div>
 
                 <div className="col-xxl-3 col-xl-3 justify-content-end d-flex  col-lg-12 col-md-12 col-sm-12">
-                    <div className="card me-5 rounded-4 p-3 mb-4" style={{ width: "350px" }}>
+                    <div className="card me-5 rounded-4 p-3 mb-2" style={{ width: "350px", height: "260px" }}>
                         <h4 className="text-center">Apply on the go</h4>
                         <p className="m-0 text-center" style={{ fontSize: "14px" }}>Get real-time job updates on our App</p>
                         <div className="row mt-4">
 
-                            <div className="col-6 ">
+                            <div className="col-6">
                                 <div className="row">
                                     <FaApple size={40} />
                                 </div>
 
                                 <div className="mt-3 d-flex justify-content-center row">
-                                    <div className="d-flex justify-content-center" style={{ width: "300px" }}>
-                                        <QRCodeCanvas value={url} level="H" />
+                                    <div className="d-flex justify-content-center" >
+                                        <QRCodeCanvas value={url} level="H" style={{width: "80px", height: "80px"}} />
                                     </div>
                                 </div>
 
                             </div>
 
-                            <div className="col-6  ">
+                            <div className="col-6">
                                 <div className=" row">
                                     <FaGooglePlay size={40} />
                                 </div>
 
                                 <div className="mt-3 d-flex justify-content-center row ">
-                                    <div className="d-flex justify-content-center" style={{ width: "300px" }}>
-                                        <QRCodeCanvas value={url2} level="H" />
+                                    <div className="d-flex justify-content-center" >
+                                        <QRCodeCanvas value={url2} level="H" style={{width: "80px", height: "80px"}} />
                                     </div>
                                 </div>
 

@@ -1,4 +1,4 @@
-
+"use client"
 import Link from "next/link";
 import { IoIosNotifications } from "react-icons/io";
 import { MdAccountCircle } from "react-icons/md";
@@ -13,17 +13,44 @@ import { GrDocumentUser } from "react-icons/gr";
 import { LuPackage2 } from "react-icons/lu";
 import { CiSettings } from "react-icons/ci";
 
+
+import { FaLocationDot } from "react-icons/fa6";
+import { BsSuitcaseLgFill } from "react-icons/bs";
+import { IoMdWallet } from "react-icons/io";
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoMail } from "react-icons/io5";
+import { FaCalendarAlt } from "react-icons/fa";
+import { MdEdit } from "react-icons/md";
+
+
+
 // import '../../styles/employeeaccount.css';
 import Footer from "@/components/footer";
+import { useState } from "react";
+import Profilemodal from "@/components/profilemodal";
 
 const Employeeaccount = () => {
+
+    const [show, setShow] = useState(false);
+
+
+    const openmodal = () => {
+        setShow(true);
+    }
+
+    const handleClose = () => {
+        setShow(false);
+
+    }
 
 
 
     return (
         <>
 
+
             <div className="container-fluid" >
+
 
                 <div className="row pt-2 pb-2 border-bottom" >
                     <div className="col-xxl-3 col-xl-3 col-lg-12 col-sm-12 col-md-12">
@@ -79,13 +106,13 @@ const Employeeaccount = () => {
                                     d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-167l80 80c9.4 9.4 24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-39 39V184c0-13.3-10.7-24-24-24s-24 10.7-24 24V318.1l-39-39c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9z"
                                 ></path>
                             </svg> */}
-                                    <span className="ms-3" style={{fontSize: "15px"}}>Build your resume AI</span>
+                                    <span className="ms-3" style={{ fontSize: "15px" }}>Build your resume AI</span>
                                 </Link>
 
                             </div>
                         </div>
 
-                     
+
 
 
                     </div>
@@ -93,6 +120,102 @@ const Employeeaccount = () => {
                     <div className="col-xxl-10 col-xl-10 col-lg-12 col-md-12 col-sm-12 ">
                         <div className="row">
                             <div className="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12 border-end">
+
+                                <div className="row mt-4 ps-4 pe-4">
+                                    <div className="card rounded-4 p-3">
+                                        <div className="row">
+                                            <div className="col-xxl-3  col-xl-3 col-lg-12 col-md-12 col-sm-12  d-flex justify-content-center align-items-center">
+                                                <img src="/test.jpg" className="rounded-circle" style={{ height: "140px", width: "140px" }}>
+                                                </img>
+
+                                            </div>
+                                            <div className="col-xxl-9  col-xl-9 col-lg-12 col-md-12 col-sm-12 ">
+
+                                                <h3>John Doe</h3>
+                                                <h6 className="m-0">Textile Engineer</h6>
+                                                <p className="m-0">at Vardhman textile</p>
+                                                <hr></hr>
+                                                <div className="row">
+                                                    <div className="col-6">
+
+
+                                                        <p className="m-0"><FaLocationDot /><span style={{ fontSize: "13px" }} className="ms-2">8/251, Vikarm ngara, Ichalkaranji</span></p>
+                                                        <p className="m-0"><BsSuitcaseLgFill /><span style={{ fontSize: "13px" }} className="ms-2">1 Year 6 Month</span></p>
+                                                        <p className="m-0"><IoMdWallet /><span style={{ fontSize: "13px" }} className="ms-2">Rs 2,64,000</span></p>
+
+                                                    </div>
+                                                    <div className="col-6 border-start">
+
+                                                        <p className="m-0 ps-3"><FaPhoneAlt /><span style={{ fontSize: "13px" }} className="ms-2">+91-74857485738</span></p>
+                                                        <p className="m-0 ps-3"><IoMail /><span style={{ fontSize: "13px" }} className="ms-2">John.doe@icloud.com</span></p>
+                                                        <p className="m-0 ps-3"><FaCalendarAlt /> <span style={{ fontSize: "13px" }} className="ms-2">15 Days or less notice period</span></p>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div className="row mt-4 ps-4 pe-4">
+                                    <div className="card rounded-4 p-3">
+                                        <div className="row">
+
+
+                                            <h5>Key skills <MdEdit size={20} onClick={() => openmodal()} style={{ cursor: "pointer" }} /></h5>
+
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+
+                                <div className="row mt-4 ps-4 pe-4">
+                                    <div className="card rounded-4 p-3">
+                                        <div className="row">
+
+
+                                            <h5>Work Experience <MdEdit size={20} onClick={() => openmodal()} style={{ cursor: "pointer" }} /></h5>
+
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 <h4 className="mt-4 ms-4">Profile Information</h4>
                                 <div className="row ms-3 mt-4">
                                     <div className=" col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12 ">
@@ -206,6 +329,8 @@ const Employeeaccount = () => {
 
                         </div>
 
+
+
                     </div>
                 </div>
 
@@ -245,10 +370,12 @@ const Employeeaccount = () => {
                             <Link href="/employeeaccount" className="btn mt-2 text-start w-100"><GrDocumentUser /><span className="ms-3">My Resume</span> </Link>
                             <Link href="/findjob" className="btn mt-2 text-start w-100"><LuPackage2 /><span className="ms-3">Packages</span></Link>
                             <Link href="/employeeaccount" className="btn mt-2 text-start w-100"><CiSettings /><span className="ms-3">Settings</span></Link>
+
+
                         </div>
                     </div>
 
-                    <div className="row   d-flex justify-content-center" style={{marginTop: "80px"}}>
+                    <div className="row   d-flex justify-content-center" style={{ marginTop: "80px" }}>
                         <div className="col-10 flex justify-content-center">
                             <button className="btn btn-danger border w-100">LOG OUT</button>
 
@@ -257,7 +384,7 @@ const Employeeaccount = () => {
                     </div>
                 </div>
 
-
+                <Profilemodal show={show} handleClose={handleClose}></Profilemodal>
 
             </div>
 
