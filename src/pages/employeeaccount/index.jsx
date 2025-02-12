@@ -214,6 +214,24 @@ const Employeeaccount = () => {
 
                                 </div>
 
+                                <div className="row mt-4 ps-4 pe-4">
+                                    <div className="card rounded-4 p-3">
+                                        <div className="row">
+
+
+                                            <h5>Education <MdEdit size={20} onClick={() => openexperiencemodal()} style={{ cursor: "pointer" }} /></h5>
+
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
 
 
 
