@@ -1,108 +1,252 @@
 import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import { Chip, Button } from "@mui/material";
+import {
+  TextField,
+  Checkbox,
+  FormControlLabel,
+  Button,
+  MenuItem,
+  Dialog,
+} from "@mui/material";
 
 const Experiencemodal = ({ showexperience, handlecloseexperience }) => {
-  const [skills] = useState([
-    "Fabric Selection",
-    "Textile Design",
-    "Weaving Techniques",
-    "Knitting Techniques",
-    "Dyeing and Printing",
-    "Embroidery",
-    "Garment Construction",
-    "Quality Control",
-    "Textile Testing",
-    "Pattern Making",
-    "Sewing and Stitching",
-    "Surface Ornamentation",
-    "Technical Textiles",
-    "Sustainable Textiles",
-    "Fiber Science",
-    "Non-woven Fabrics",
-    "Textile Chemistry",
-    "Fabric Finishing",
-    "Digital Textile Printing",
-    "Merchandising and Sourcing"
-  ]);
+  const [formData, setFormData] = useState({
+    years: "",
+    months: "",
+    companyName: "",
+    designation: "",
+    startMonth: "",
+    startYear: "",
+    endMonth: "",
+    endYear: "",
+    currentlyWorking: false,
+    description: "",
+  });
 
-  const [selectedSkills, setSelectedSkills] = useState([]);
-
-  // Function to remove a skill from the selectedSkills array
-  const handleRemoveSkill = (skillToRemove) => {
-    setSelectedSkills(selectedSkills.filter((skill) => skill !== skillToRemove));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if ((name === "years" || name === "months") && (value < 0 || value > 50))
+      return;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Function to add skill from suggested skills
-  const handleAddSuggestedSkill = (skill) => {
-    if (!selectedSkills.includes(skill)) {
-      setSelectedSkills([...selectedSkills, skill]);
+  const handleCheckboxChange = () => {
+    setFormData((prev) => ({
+      ...prev,
+      currentlyWorking: !prev.currentlyWorking,
+      endMonth: "",
+      endYear: "",
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.companyName || !formData.designation) {
+      alert("Company Name and Designation are required!");
+      return;
     }
+    if (
+      !formData.currentlyWorking &&
+      formData.startYear &&
+      formData.endYear &&
+      formData.startYear > formData.endYear
+    ) {
+      alert("End Year cannot be before Start Year!");
+      return;
+    }
+    console.log("Submitted Data:", formData);
   };
 
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const years = Array.from(
+    new Array(50),
+    (_, index) => new Date().getFullYear() - index
+  );
   if (!showexperience) return null;
 
   return (
     <div className="modal-over-experience">
-      <div className="modal-con-experience p-5">
-        <div className="row d-flex justify-content-end align-items-center">
+       <div className="modal-con-experience ">
+       <div className="row d-flex justify-content-end align-items-center">
           <div className="col-2 d-flex justify-content-end align-items-center">
             <span onClick={handlecloseexperience} style={{ cursor: "pointer", fontSize: "21px" }}>X</span>
           </div>
         </div>
-        <h3>Work Experience</h3>
-        <p style={{ fontSize: "13px" }}>
-          Provide skills that best showcase your expertise, such as textile marketing, merchandising, weaving design, etc. (At least one required).
-        </p>
-
-        <h6 className="mt-4">Added Skills</h6>
-        <div className="added-skills mt-2 d-flex flex-wrap">
-          {selectedSkills.length > 0 ? (
-            selectedSkills.map((skill, index) => (
-              <Chip
-                key={index}
-                label={skill}
-                onDelete={() => handleRemoveSkill(skill)}
-                color="primary"
-                variant="outlined"
-                className="me-2 mb-2"
-              />
-            ))
-          ) : (
-            <p>No skills added yet</p>
-          )}
+  
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "15px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <h3>Work Experience</h3>
+          {/* <p>Adding roles & companies you have worked with help employers understand your background</p> */}
+         
         </div>
 
-        <div className="col-8 mt-4">
-          <Autocomplete
-            options={skills}
-            sx={{ width: 800 }}
-            onChange={(event, newValue) => {
-              if (newValue && !selectedSkills.includes(newValue)) {
-                setSelectedSkills([...selectedSkills, newValue]);
-              }
-            }}
-            renderInput={(params) => <TextField {...params} label="Select Skill" />}
-          />
+        <TextField
+          label="Total Experience (Years)"
+          name="years"
+          type="number"
+          value={formData.years}
+          onChange={handleChange}
+          fullWidth
+          required
+        />
+        <TextField
+          label="Total Experience (Months)"
+          name="months"
+          type="number"
+          value={formData.months}
+          onChange={handleChange}
+          fullWidth
+          required
+        />
 
-          <p className="mt-4">Or you can select from the suggested set of skills</p>
+        <TextField
+          label="Company Name"
+          name="companyName"
+          value={formData.companyName}
+          onChange={handleChange}
+          fullWidth
+          required
+        />
+        <TextField
+          label="Designation"
+          name="designation"
+          value={formData.designation}
+          onChange={handleChange}
+          fullWidth
+          required
+        />
 
-          {/* Suggested Skills Section */}
-          <div className="suggested-skills mt-3 d-flex flex-wrap">
-          {skills.slice(0, 5).map((skill, index) => (
-              <Chip
-                key={index}
-                label={skill}
-                variant="outlined"
-                className="me-2 mb-2"
-                onClick={() => handleAddSuggestedSkill(skill)}
-                style={{ cursor: "pointer" }}
-              />
+        <div style={{ display: "flex", gap: "10px" }}>
+          <TextField
+            select
+            label="Start Month"
+            name="startMonth"
+            value={formData.startMonth}
+            onChange={handleChange}
+            fullWidth
+            required
+          >
+            {months.map((month) => (
+              <MenuItem key={month} value={month}>
+                {month}
+              </MenuItem>
             ))}
-          </div>
+          </TextField>
+          <TextField
+            select
+            label="Start Year"
+            name="startYear"
+            value={formData.startYear}
+            onChange={handleChange}
+            fullWidth
+            required
+          >
+            {years.map((year) => (
+              <MenuItem key={year} value={year}>
+                {year}
+              </MenuItem>
+            ))}
+          </TextField>
         </div>
-      </div>
+
+        {!formData.currentlyWorking && (
+          <div style={{ display: "flex", gap: "10px" }}>
+            <TextField
+              select
+              label="End Month"
+              name="endMonth"
+              value={formData.endMonth}
+              onChange={handleChange}
+              fullWidth
+              required
+            >
+              {months.map((month) => (
+                <MenuItem key={month} value={month}>
+                  {month}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              select
+              label="End Year"
+              name="endYear"
+              value={formData.endYear}
+              onChange={handleChange}
+              fullWidth
+              required
+            >
+              {years.map((year) => (
+                <MenuItem key={year} value={year}>
+                  {year}
+                </MenuItem>
+              ))}
+            </TextField>
+          </div>
+        )}
+
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={formData.currentlyWorking}
+              onChange={handleCheckboxChange}
+            />
+          }
+          label="I currently work here"
+        />
+
+        <TextField
+          label="Job Description"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          multiline
+          rows={4}
+          inputProps={{ maxLength: 4000 }}
+          fullWidth
+          required
+        />
+
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Button
+            onClick={handlecloseexperience}
+            variant="outlined"
+            color="secondary"
+          >
+            Cancel
+          </Button>
+          <Button type="submit" variant="contained" color="primary">
+            Save
+          </Button>
+        </div>
+      </form>
+   
+    </div>
     </div>
   );
 };
