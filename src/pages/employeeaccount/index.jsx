@@ -29,12 +29,17 @@ import Footer from "@/components/footer";
 import { useState } from "react";
 import Profilemodal from "@/components/profilemodal";
 import Experiencemodal from "@/components/experiencemodal";
+import EducationModal from "@/components/educationmodal";
+import ProjectModal from "@/components/projectmodal";
+
+
 
 const Employeeaccount = () => {
 
     const [show, setShow] = useState(false);
     const [showexperience, setShowexperience] = useState(false);
-
+    const [showeducation,setShoweducation] = useState(false);
+    const [showproject, setShowproject] = useState(false);
 
     const openexperiencemodal = () => {
         setShowexperience(true);
@@ -56,6 +61,22 @@ const Employeeaccount = () => {
 
     }
 
+    const openeducationmodal = () =>{
+        setShoweducation(true);
+    }
+
+    const handlecloseeducation = () => {
+        setShoweducation(false);
+
+    }
+
+    const openprojectmodal =() =>{
+        setShowproject(true);
+    }
+
+    const handlecloseproject = () =>{
+        setShowproject(false);
+    }
 
 
     return (
@@ -219,7 +240,25 @@ const Employeeaccount = () => {
                                         <div className="row">
 
 
-                                            <h5>Education <MdEdit size={20} onClick={() => openexperiencemodal()} style={{ cursor: "pointer" }} /></h5>
+                                            <h5>Education <MdEdit size={20} onClick={() => openeducationmodal()} style={{ cursor: "pointer" }} /></h5>
+
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                            <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div className="row mt-4 ps-4 pe-4">
+                                    <div className="card rounded-4 p-3">
+                                        <div className="row">
+
+
+                                            <h5>Projects <MdEdit size={20} onClick={() => openprojectmodal()} style={{ cursor: "pointer" }} /></h5>
 
                                             <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
                                             <span className="border rounded-5 ms-2 mt-4" style={{ display: "inline-block", width: "auto" }} >sdfsf</span>
@@ -417,7 +456,8 @@ const Employeeaccount = () => {
 
                 <Profilemodal show={show} handleClose={handleClose}></Profilemodal>
                 <Experiencemodal showexperience={showexperience} handlecloseexperience={handlecloseexperience}></Experiencemodal>
-
+                <EducationModal showEducation={showeducation} handleCloseEducation={handlecloseeducation}></EducationModal>
+                <ProjectModal showProject={showproject} handleCloseProject={handlecloseproject}></ProjectModal>
             </div>
 
 

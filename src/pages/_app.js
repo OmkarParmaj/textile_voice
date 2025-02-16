@@ -5,8 +5,10 @@ import '../styles/dashboard.css';
 import '../styles/employeeaccount.css';
 import '../styles/findjob.css';
 import '../styles/modal.css';
-import '../styles/profilemodal.css'
-import '../styles/experiencemodal.css'
+import '../styles/profilemodal.css';
+import '../styles/experiencemodal.css';
+import '../styles/educationmodal.css';
+import '../styles/projectmodal.css';
 
 
 
