@@ -55,7 +55,17 @@ const Header = () => {
         </div>
       </nav>
       {/* *********Next page****** */}
-      <Container fluid className="text-center mt-5">
+      <Container
+        fluid
+        className="text-center "
+        style={{
+          backgroundImage: "url('/bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+          padding: "20px",
+        }}
+      >
         <h1 className="mb-4">
           <span style={{ color: "blue" }}>Textile</span>Voice
         </h1>
@@ -66,7 +76,12 @@ const Header = () => {
         </p>
         <Row>
           <Col>
-            <img src="/4.png" className="" width={400} height={250}></img>
+            <img
+              src="/looking for job.png"
+              className=""
+              width={400}
+              height={250}
+            ></img>
             <div className="p-3 rounded bg-primary text-white">
               <h2>Looking for a Job?</h2>
             </div>
@@ -80,7 +95,12 @@ const Header = () => {
             </div>
           </Col>
           <Col>
-            <img src="/5.png" className="" width={400} height={250}></img>
+            <img
+              src="/looking to hire.png"
+              className=""
+              width={400}
+              height={250}
+            ></img>
             <div className="p-3 rounded bg-primary text-white">
               <h2>Looking to Hire?</h2>
             </div>
@@ -95,6 +115,45 @@ const Header = () => {
           </Col>
         </Row>
       </Container>
+
+      {/* /*****next section****/}
+      <h1 className="text-primary text-center mt-4" style={{ fontSize: "40px", fontWeight: "bold" }}>
+  HOT HIRING
+</h1>
+
+
+<Container
+  fluid
+  className="my-5 text-white d-flex align-items-end"
+  style={{
+    backgroundImage: "url('/Frame 177.png')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+   height:"500px",
+    padding: "20px",
+  }}
+>
+  <Row className="w-100">
+    <Col md={12} className="d-flex justify-content-between align-items-center">
+     
+      <div style={{ marginBottom: "80px" }}>
+  <h2 className="mt-4">COMPANY NAME</h2>
+  <p className="mt-3">
+    Join our dynamic team as a Software Engineer, where you will be responsible for developing <br></br>
+     innovative software solutions and collaborating with cross-functional teams.
+  </p>
+</div>
+     
+      <Button variant="primary" size="lg" style={{ marginTop: "150px" }} >
+        Apply Now
+      </Button>
+    </Col>
+  </Row>
+</Container>
+
+
+
     </>
   );
 };

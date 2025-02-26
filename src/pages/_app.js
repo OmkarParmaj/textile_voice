@@ -9,7 +9,7 @@ import '../styles/profilemodal.css';
 import '../styles/experiencemodal.css';
 import '../styles/educationmodal.css';
 import '../styles/projectmodal.css';
-
+import '../styles/landing.css'
 
 
 
