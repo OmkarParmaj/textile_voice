@@ -62,7 +62,7 @@ const Header = () => {
           backgroundImage: "url('/bg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight: "100vh",
+          height:"600px",
           padding: "20px",
         }}
       >
